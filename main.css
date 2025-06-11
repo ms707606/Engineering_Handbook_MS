@@ -1,0 +1,124 @@
+.container {
+    width: 1728px;
+    height: 1117px;
+    margin: 0 auto; /* Centers the content */
+}
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@700&display=swap');
+
+header {
+    border-bottom: 1px solid var(--Border-Primary, #C7CDD0);
+    padding-bottom: 10px; /* Adds spacing between the line and sidebar */
+    margin-bottom: 20px; /* Ensures space between elements */
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--Border-Primary, #C7CDD0);
+    margin: 10px 0 20px 0; /* Adds spacing above and below */
+}
+
+.main-content {
+    margin-left: 325px; /* Push content to the right */
+    padding: 24px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Space between logo and text */
+}
+
+.logo {
+    width: 50px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+.logo img {
+    width: 100px; /* Adjust logo size */
+    height: auto;
+}
+/* Style the h1 title */
+.engineering-handbook {
+    text-align: center;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 130%;
+    margin-bottom: 20px;
+}
+
+/* Layout container */
+.content-container {
+    display: flex;
+    align-items: flex-start; /* Align sidebar and content */
+    gap: 20px;
+}
+
+/* Sidebar styling */
+.sidebar {
+    display: flex;
+    width: 325px;
+    height: auto; /* Adjust height based on content */
+    padding: 24px 24px 24px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-right: 1px solid var(--Border-Primary, #C7CDD0);
+    background-color: #fff;
+}
+
+/* Navigation links */
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.side-nav li {
+    width: 100%;
+}
+
+.side-nav a {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.side-nav a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Main content styling */
+.main-content {
+    flex-grow: 1; /* Takes remaining space */
+    padding: 24px;
+}
+
+.logo {
+    font-size: 24px;
+   
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: #007BFF; /* Change hover effect */
+}

@@ -6,6 +6,34 @@ body {
   color: #222;
 }
 
+
+.search-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 220px;
+}
+
+.search-wrapper img {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-wrapper input {
+  width: 100%;
+  height: 32px;
+  padding-left: 40px; /* space for the icon */
+  border: 1px solid #ccc;
+  border-radius: 99px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+}
 h1, h2, h3 {
   margin-bottom: 0.5rem;
 }
@@ -29,6 +57,8 @@ a:hover {
   border-bottom: 1px solid #ddd;
 }
 
+
+
 .logo {
   font-weight: bold;
   font-size: 18px;
@@ -45,10 +75,11 @@ a:hover {
   gap: 16px;
 }
 
-.topnav input[type="text"] {
-  padding: 6px 10px;
+.topnav .search-wrapper input {
+  padding-left: 40px;
+  border-radius: 999px;
+  height: 32px;
   border: 1px solid #ccc;
-  border-radius: 6px;
 }
 
 .dark-toggle {

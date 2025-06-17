@@ -1,124 +1,128 @@
-.container {
-    width: 1728px;
-    height: 1117px;
-    margin: 0 auto; /* Centers the content */
-}
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@700&display=swap');
-
-header {
-    border-bottom: 1px solid var(--Border-Primary, #C7CDD0);
-    padding-bottom: 10px; /* Adds spacing between the line and sidebar */
-    margin-bottom: 20px; /* Ensures space between elements */
+/* Reset & Base */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f9f9f9;
+  color: #222;
 }
 
-.divider {
-    border: none;
-    border-top: 1px solid var(--Border-Primary, #C7CDD0);
-    margin: 10px 0 20px 0; /* Adds spacing above and below */
+h1, h2, h3 {
+  margin-bottom: 0.5rem;
 }
 
-.main-content {
-    margin-left: 325px; /* Push content to the right */
-    padding: 24px;
+a {
+  color: #4169e1;
+  text-decoration: none;
 }
 
-.title-container {
-    display: flex;
-    align-items: center; /* Align items vertically */
-    gap: 10px; /* Space between logo and text */
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
 }
 
 .logo {
-    width: 50px; /* Adjust as needed */
-    height: auto; /* Maintain aspect ratio */
+  font-weight: bold;
+  font-size: 18px;
 }
 
-
-.logo img {
-    width: 100px; /* Adjust logo size */
-    height: auto;
-}
-/* Style the h1 title */
-.engineering-handbook {
-    text-align: center;
-    font-family: 'Source Sans 3', sans-serif;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 130%;
-    margin-bottom: 20px;
+.logo span {
+  font-weight: normal;
+  margin-left: 4px;
 }
 
-/* Layout container */
-.content-container {
-    display: flex;
-    align-items: flex-start; /* Align sidebar and content */
-    gap: 20px;
+.topnav nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-/* Sidebar styling */
+.topnav input[type="text"] {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.dark-toggle {
+  cursor: pointer;
+}
+
+/* Main Layout */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
 .sidebar {
-    display: flex;
-    width: 325px;
-    height: auto; /* Adjust height based on content */
-    padding: 24px 24px 24px 0px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    border-right: 1px solid var(--Border-Primary, #C7CDD0);
-    background-color: #fff;
+  width: 220px;
+  padding: 24px 16px;
+  background: #fff;
+  border-right: 1px solid #eee;
 }
 
-/* Navigation links */
-.side-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+.sidebar h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 24px;
+  text-transform: uppercase;
 }
 
-.side-nav li {
-    width: 100%;
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0 0 0;
 }
 
-.side-nav a {
-    display: block;
-    padding: 10px 16px;
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
+.sidebar li {
+  font-size: 14px;
+  padding: 4px 0;
+  cursor: pointer;
 }
 
-.side-nav a:hover {
-    background-color: #f0f0f0;
+.sidebar li:hover {
+  text-decoration: underline;
 }
 
-/* Main content styling */
-.main-content {
-    flex-grow: 1; /* Takes remaining space */
-    padding: 24px;
+/* Content */
+.content {
+  flex-grow: 1;
+  padding: 40px;
+  max-width: 900px;
 }
 
-.logo {
-    font-size: 24px;
-   
+.breadcrumb {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 16px;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.callout {
+  background: #fdeaff;
+  padding: 16px;
+  border-left: 4px solid #bb33cc;
+  margin: 24px 0;
 }
 
-.nav-links li {
-    display: inline;
+.cards {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-}
-
-.nav-links a:hover {
-    color: #007BFF; /* Change hover effect */
+.card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
 }

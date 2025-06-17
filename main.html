@@ -1,35 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="engineering-handbook">Engineering handbook</title>
-    <link rel="stylesheet" href="main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Engineering Handbook</title>
+  <link rel="stylesheet" href="main.css" />
 </head>
-<body class="container lightmode">
-    <header>
-            <nav class="navbar">
-                <div class="title-container">
-                    <img src="public/images/iu-group-logo-white-rgb-vertikal-1.png" alt="Logo" class="logo">
-                            <h1 class="engineering-handbook">Engineering Handbook</h1>
-                            <hr class="divider">
-                        </header>
-                    
-                        <div class="content-container">
-                            <aside class="sidebar">
-                                <nav class="side-nav">
-                                    <ul>
-                                        <li><a href="#home">Home</a></li>
-                                        <li><a href="#about">About</a></li>
-                                        <li><a href="#services">Services</a></li>
-                                        <li><a href="#contact">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </aside>
-                    
-                            <main class="main-content">
-                                <p>Welcome to the handbook...</p>
-                            </main>
-                        </div>
+<body>
+  <header class="topnav">
+    <div class="logo">iu <span>GROUP</span></div>
+    <nav>
+      <a href="#">GitLab ↗</a>
+      <input type="text" placeholder="Search…" />
+      <label class="dark-toggle">
+        <input type="checkbox" />
+        <span>🌙</span>
+      </label>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Principles</h3>
+      <ul>
+        <li>Mission</li>
+        <li>Tech Manifesto</li>
+      </ul>
+      <h3>Role Competencies</h3>
+      <ul>
+        <li>Competencies Framework</li>
+        <li>Junior Software Engineer</li>
+        <li>Software Engineer</li>
+        <li>Senior Software Engineer</li>
+        <li>Staff Engineer</li>
+        <li>Principal Software Engineer</li>
+      </ul>
+      <h3>Organization</h3>
+      <ul>
+        <li>Structure</li>
+        <li>Roles</li>
+        <li>Teams</li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <nav class="breadcrumb">IU Engineering handbook /</nav>
+      <h1>Welcome to our Engineering Handbook!</h1>
+      <p>This handbook serves as a comprehensive resource, supporting you throughout your journey, whether you're a student entering the field, a seasoned professional revisiting the fundamentals, or anywhere in between.</p>
+      <div class="callout">
+        <strong>💜 We're thrilled to have you with us</strong>
+        <p>Together, we're revolutionizing education through technology, shaping a brighter and more interconnected future for learning.</p>
+      </div>
+
+      <section>
+        <h2>Getting started</h2>
+        <p>This handbook is designed to support your professional growth by providing essential knowledge, best practices, and technical insights...</p>
+        <div class="cards">
+          <div class="card">
+            <strong>Principles</strong>
+            <p>Discover the vision that drives us.</p>
+            <a href="#">➜ Learn more</a>
+          </div>
+          <div class="card">
+            <strong>Competencies</strong>
+            <p>Learn about each role within the team.</p>
+            <a href="#">➜ Learn more</a>
+          </div>
+          <div class="card">
+            <strong>Organization</strong>
+            <p>Understand the company’s structure.</p>
+            <a href="#">➜ Learn more</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>

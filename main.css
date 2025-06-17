@@ -1,7 +1,7 @@
 /* Reset & Base */
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   background: #f9f9f9;
   color: #222;
 }
@@ -125,4 +125,33 @@ a:hover {
   padding: 16px;
   width: 100%;
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.sidebar a.active {
+  color: #007bff;
+  font-weight: bold;
+}
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff; /* adjust if needed */
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 40px; /* adjust size as needed */
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
 }

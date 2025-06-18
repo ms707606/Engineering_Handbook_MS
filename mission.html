@@ -14,7 +14,7 @@
     <span class="logo-text">Engineering Handbook</span>
   </div>
   <nav>
-    <a href="https://about.gitlab.com">GitLab ↗</a>
+    <a href="https://about.gitlab.com">GitLab <img src="public/images/arrow-up-right.svg"></a>
     <label class="dark-toggle">
       <input type="checkbox" />
       <span><img src="public/images/moon.png" alt="Dark mode" class="icon" /></span>
@@ -35,19 +35,46 @@
       </ul>
       <h3>Role Competencies</h3>
       <ul>
-        <li>Competencies Framework</li>
-        <li>Junior Software Engineer</li>
-        <li>Software Engineer</li>
-        <li>Senior Software Engineer</li>
-        <li>Staff Engineer</li>
-        <li>Principal Software Engineer</li>
+        <li><a href="Competencies.html">Competencies Framework</a></li>
+        <li><a href="Junior_Software.html">Junior Software Engineer</a></li>
+        <li><a href="Software_engineer.html">Software Engineer</a></li>
+        <li><a href="Senior_software.html">Senior Software Engineer</a></li>
+        <li><a href="Staff_engineer.html">Staff Engineer</a></li>
+        <li><a href="Principal_software.html">Principal Software Engineer</a></li>
       </ul>
       <h3>Organization</h3>
-      <ul>
-        <li>Structure</li>
-        <li>Roles</li>
-        <li>Teams</li>
-      </ul>
+<ul class="sidebar-list">
+  <li class="dropdown">
+    <div class="dropdown-toggle">
+      <span>Structure</span>
+      <img src="public/images/Vector.png" alt="Toggle Dropdown" class="dropdown-arrow" />
+    </div>
+    <ul class="dropdown-menu">
+      <li><a href="Structure/Engineering_Structure.html">Engineering Structure Vision</a></li>
+      <li><a href="Structure/Domain_Centric.html">Domain-Centric Structure</a></li>
+      <li><a href="Structure/Cluster_of_Domains.html">Cluster of Domains</a></li>
+      <li><a href="Structure/Driving_engineering.html">Driving Engineering Consistency</a></li>
+      <li><a href="Structure/Recap.html">Recap & FAQs</a></li>
+    </ul>
+  </li>
+  <li>Roles</li>
+    <li class="dropdown">
+    <div class="dropdown-toggle">
+      <span>Teams</span>
+      <img src="public/images/Vector.png" alt="Toggle Dropdown" class="dropdown-arrow" />
+    </div>
+    <ul class="dropdown-menu">
+      <li><a href="Teams/Core_components.html">Core Components</a></li>
+      <li><a href="Teams/CyberSecS.html">CyberSecS</a></li>
+      <li><a href="Teams/EduTech.html">EduTech</a></li>
+      <li><a href="Teams/OrgTech.html">OrgTech</a></li>
+      <li><a href="Teams/MartTech.html">MartTech</a></li>
+      <li><a href="Teams/SalesTech.html">SalesTech</a></li>
+      <li><a href="Teams/Synthetic_Teaching.html">Synthetic Teaching</a></li>
+      <li><a href="Teams/QA.html">QA</a></li>
+    </ul>
+  </li>
+</ul>
     </aside>
 
     <main class="content">
@@ -76,5 +103,18 @@
       </section>
     </main>
   </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+
+      toggle.addEventListener("click", () => {
+        dropdown.classList.toggle("open");
+      });
+    });
+  });
+</script>
 </body>
 </html>

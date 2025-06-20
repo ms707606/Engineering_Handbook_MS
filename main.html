@@ -10,17 +10,17 @@
 <body>
   <header class="topnav">
   <div class="logo-container">
-    <img src="public/images/iu-group-logo-white-rgb-vertikal-1.png" alt="IU Group Logo" class="logo-img" alt="IU Group Logo" class="logo-img" />
+    <img src="public/images/iuGroup_Logo_white_RGB_vertikal 1.svg" alt="IU Group Logo" class="logo-img" alt="IU Group Logo" class="logo-img" />
     <span class="logo-text">Engineering Handbook</span>
   </div>
   <nav>
     <a href="https://about.gitlab.com">GitLab <img src="public/images/arrow-up-right.svg"></a>
     <label class="dark-toggle">
       <input type="checkbox" />
-      <span><img src="public/images/moon.png" alt="Dark mode" class="icon" /></span>
+      <span><img src="public/images/Moon.svg" alt="Dark mode" class="icon" /></span>
     </label>
    <div class="search-wrapper">
-  <img src="public/images/search.png" alt="Search Icon" />
+  <img src="public/images/search.svg" alt="Search Icon" />
   <input type="text" placeholder=" Search…" />
 </div>
   </nav>
@@ -61,7 +61,7 @@
     <li class="dropdown">
     <div class="dropdown-toggle">
       <span>Teams</span>
-      <img src="public/images/Vector.png" alt="Toggle Dropdown" class="dropdown-arrow" />
+      <img src="public/images/Vector.svg" alt="Toggle Dropdown" class="dropdown-arrow" />
     </div>
     <ul class="dropdown-menu">
       <li><a href="Teams/Core_components.html">Core Components</a></li>
@@ -82,7 +82,7 @@
       <h1>Welcome to our Engineering Handbook!</h1>
       <p>This handbook serves as a comprehensive resource, supporting you throughout your journey, whether you're a student entering the field, a seasoned professional revisiting the fundamentals, or anywhere in between.</p>
       <div class="callout">
-        <strong>💜 We're thrilled to have you with us</strong>
+        <strong><a href="/public/images/love-it 1.svg"></a> We're thrilled to have you with us</strong>
         <p>Together, we're revolutionizing education through technology, shaping a brighter and more interconnected future for learning.</p>
       </div>
 
@@ -115,10 +115,20 @@
 
     dropdowns.forEach((dropdown) => {
       const toggle = dropdown.querySelector(".dropdown-toggle");
-
       toggle.addEventListener("click", () => {
         dropdown.classList.toggle("open");
       });
+    });
+
+    // Automatically highlight current link
+    const currentPath = window.location.pathname.split("/").pop();
+    const sidebarLinks = document.querySelectorAll(".sidebar a");
+
+    sidebarLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && href.includes(currentPath)) {
+        link.classList.add("active");
+      }
     });
   });
 </script>

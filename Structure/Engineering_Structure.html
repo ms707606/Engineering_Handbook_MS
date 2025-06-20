@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Engineering Structure Vision</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/main.css" />
+</head>
+<body>
+  <header class="topnav">
+  <div class="logo-container">
+    <img src="/public/images/iuGroup_Logo_white_RGB_vertikal 1.svg" alt="IU Group Logo" class="logo-img" alt="IU Group Logo" class="logo-img" />
+    <span class="logo-text">Engineering Handbook</span>
+  </div>
+  <nav>
+    <a href="https://about.gitlab.com">GitLab <img src="/public/images/arrow-up-right.svg"></a>
+    <label class="dark-toggle">
+      <input type="checkbox" />
+      <span><img src="/public/images/Moon.svg" alt="Dark mode" class="icon" /></span>
+    </label>
+   <div class="search-wrapper">
+  <img src="/public/images/search.svg" alt="Search Icon" />
+  <input type="text" placeholder=" Search…" />
+</div>
+  </nav>
+</header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Principles</h3>
+      <ul>
+        <li><a href="/mission.html">Mission</a></li>
+        <li><a href="/tech_manifesto.html">Tech Manifesto</a></li>
+      </ul>
+      <h3>Role Competencies</h3>
+      <ul>
+        <li><a href="/Competencies.html">Competencies Framework</a></li>
+        <li><a href="/Junior_Software.html">Junior Software Engineer</a></li>
+        <li><a href="/Software_engineer.html">Software Engineer</a></li>
+        <li><a href="/Senior_software.html">Senior Software Engineer</a></li>
+        <li><a href="/Staff_engineer.html">Staff Engineer</a></li>
+        <li><a href="/Principal_software.html">Principal Software Engineer</a></li>
+      </ul>
+      <h3>Organization</h3>
+<ul class="sidebar-list">
+  <li class="dropdown">
+    <div class="dropdown-toggle">
+      <span>Structure</span>
+      <img src="/public/images/Vector.svg" alt="Toggle Dropdown" class="dropdown-arrow" />
+    </div>
+    <ul class="dropdown-menu">
+      <li><a href="Engineering_Structure.html">Engineering Structure Vision</a></li>
+      <li><a href="Domain_Centric.html">Domain-Centric Structure</a></li>
+      <li><a href="Cluster_of_Domains.html">Cluster of Domains</a></li>
+      <li><a href="Driving_engineering.html">Driving Engineering Consistency</a></li>
+      <li><a href="Recap.html">Recap & FAQs</a></li>
+    </ul>
+  </li>
+  <li>Roles</li>
+    <li class="dropdown">
+    <div class="dropdown-toggle">
+      <span>Teams</span>
+      <img src="/public/images/Vector.svg" alt="Toggle Dropdown" class="dropdown-arrow" />
+    </div>
+    <ul class="dropdown-menu">
+      <li><a href="/Teams/Core_components.html">Core Components</a></li>
+      <li><a href="/Teams/CyberSecS.html">CyberSecS</a></li>
+      <li><a href="/Teams/EduTech.html">EduTech</a></li>
+      <li><a href="/Teams/OrgTech.html">OrgTech</a></li>
+      <li><a href="/Teams/MartTech.html">MartTech</a></li>
+      <li><a href="/Teams/SalesTech.html">SalesTech</a></li>
+      <li><a href="/Teams/Synthetic_Teaching.html">Synthetic Teaching</a></li>
+      <li><a href="/Teams/QA.html">QA</a></li>
+    </ul>
+  </li>
+</ul>
+    </aside>
+
+    <main class="content">
+      <nav class="breadcrumb"><a href= "/main.html">IU Engineering handbook </a>/ Organization / Structure / <a href= "Engineering_Structure.html">Engineering Structure Vision </a></a></nav>
+      <h1>Engineering Structure Vision</h1>
+      <p>We are addressing key areas that will enable us to deliver better value to our customers and foster a more collaborative, efficient, and empowered organization. The following objectives guide our vision for improvement.</p>
+      
+     
+        <h4>
+            Empower domain teams with full ownership
+        </h4>
+        <p>
+            We want all domain teams to take complete ownership of the products and services they deliver. This autonomy enables teams to respond quickly, innovate, and deliver value to customers with both speed and safety.
+        </p>
+      
+        <h4>
+            Foster a unified organizational culture
+        </h4>
+        <p>
+            We aim to eliminate siloed thinking, such as “us versus them” or “IT versus business.” Everyone in the IU, from engineering to product, is part of the same team, working together with a shared goal of delivering customer value.
+        </p>
+        <h4>
+            Support and develop engineering talent
+        </h4>
+        <p>
+            We want to ensure that all engineering talent has the right support and development opportunities to grow professionally. This will empower individuals to advance their careers and contribute to the overall success of the organization.
+        </p>
+        <h4>
+            Reduce dependencies and encourage cross-team collaboration
+        </h4>
+        <p>
+            We aim to reduce dependencies between squads and clusters, while fostering collaboration across the organization. This will be achieved by adopting open-source practices and applying them to our proprietary core components, libraries, and templates.
+        </p>
+        <h4>
+            Align on best practices in DevOps, Agile, and Lean Development
+        </h4>
+        <p>
+            To build a high-performance engineering culture, we will align our ways of working with DevOps principles, Agile practices, and Lean product development. This alignment will increase our chances of achieving business objectives and deliver better results.
+        </p>
+
+    </main>
+  </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+      toggle.addEventListener("click", () => {
+        dropdown.classList.toggle("open");
+      });
+    });
+
+  
+    const currentPath = window.location.pathname.split("/").pop();
+    const sidebarLinks = document.querySelectorAll(".sidebar a");
+
+    sidebarLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && href.includes(currentPath)) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+</body>
+</html>

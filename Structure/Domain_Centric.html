@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Domain-Centric Structure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/main.css" />
+</head>
+<body>
+  <header class="topnav">
+  <div class="logo-container">
+    <img src="/public/images/iuGroup_Logo_white_RGB_vertikal 1.svg" alt="IU Group Logo" class="logo-img" alt="IU Group Logo" class="logo-img" />
+    <span class="logo-text">Engineering Handbook</span>
+  </div>
+  <nav>
+     <a href="https://about.gitlab.com">GitLab <img src="/public/images/arrow-up-right.svg"></a>
+    <label class="dark-toggle">
+      <input type="checkbox" />
+      <span><img src="/public/images/Moon.svg" alt="Dark mode" class="icon" /></span>
+    </label>
+    <div class="search-wrapper">
+  <img src="/public/images/search.svg" alt="Search Icon" />
+  <input type="text" placeholder=" Search…" />
+</div>
+  </nav>
+</header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Principles</h3>
+      <ul>
+        <li><a href="/mission.html">Mission</a></li>
+        <li><a href="/tech_manifesto.html">Tech Manifesto</a></li>
+      </ul>
+      <h3>Role Competencies</h3>
+      <ul>
+        <li><a href="/Competencies.html">Competencies Framework</a></li>
+        <li><a href="/Junior_Software.html">Junior Software Engineer</a></li>
+        <li><a href="/Software_engineer.html">Software Engineer</a></li>
+        <li><a href="/Senior_software.html">Senior Software Engineer</a></li>
+        <li><a href="/Staff_engineer.html">Staff Engineer</a></li>
+        <li><a href="/Principal_software.html">Principal Software Engineer</a></li>
+      </ul>
+      <h3>Organization</h3>
+<ul class="sidebar-list">
+  <li class="dropdown">
+    <div class="dropdown-toggle">
+      <span>Structure</span>
+      <img src="/public/images/Vector.svg" alt="Toggle Dropdown" class="dropdown-arrow" />
+    </div>
+    <ul class="dropdown-menu">
+      <li><a href="Engineering_Structure.html">Engineering Structure Vision</a></li>
+      <li><a href="Domain_Centric.html">Domain-Centric Structure</a></li>
+      <li><a href="Cluster_of_Domains.html">Cluster of Domains</a></li>
+      <li><a href="Driving_engineering.html">Driving Engineering Consistency</a></li>
+      <li><a href="Recap.html">Recap & FAQs</a></li>
+    </ul>
+  </li>
+  <li>Roles</li>
+    <li class="dropdown">
+    <div class="dropdown-toggle">
+      <span>Teams</span>
+      <img src="/public/images/Vector.svg" alt="Toggle Dropdown" class="dropdown-arrow" />
+    </div>
+    <ul class="dropdown-menu">
+      <li><a href="/Teams/Core_components.html">Core Components</a></li>
+      <li><a href="/Teams/CyberSecS.html">CyberSecS</a></li>
+      <li><a href="/Teams/EduTech.html">EduTech</a></li>
+      <li><a href="/Teams/OrgTech.html">OrgTech</a></li>
+      <li><a href="/Teams/MartTech.html">MartTech</a></li>
+      <li><a href="/Teams/SalesTech.html">SalesTech</a></li>
+      <li><a href="/Teams/Synthetic_Teaching.html">Synthetic Teaching</a></li>
+      <li><a href="/Teams/QA.html">QA</a></li>
+    </ul>
+  </li>
+</ul>
+    </aside>
+
+    <main class="content">
+      <nav class="breadcrumb"><a href="/main.html">IU Engineering handbook</a> / Organization / Structure / <a href="Domain_Centric.html"> Domain-Centric Structure </a></nav>
+      <h1>Domain-Centric Structure</h1>
+      <p>To achieve our vision, we will roll out a consistent organization structure across the technology space, broadly adapted from the Spotify Model.</p>
+
+    <h2 id="domain_teams">
+        Domain Teams(squads)
+      </h2>
+      <hr class="section-divider"/>
+
+      <p>
+       To achieve increased efficiency, we plan to adopt a domain-centric org structure, modeled around domain teams which are empowered to create a meaningful and measurable business impact in a single threaded way in the value chain and/or the customer journey.
+        </p><p>
+        Domain teams will be cross functional and own all key strategic resources including process design, data, engineering, UX, etc. This should reduce dependencies and allow us to deliver value faster and in a safe way, promoting full ownership of the services delivered by each team. To put it simply, you built it, you own (and maintain) it!
+      </p>
+
+      <h2 id="individual_contributors">
+        Individual Contributors(ICs)
+      </h2>
+      <hr class="section-divider"/>
+        <ul>
+        <li>Are the committed driving force behind our vision & mission. </li>
+        <li>Make everything we want to achieve possible, and we trust then to deliver value to our customers with minimum overhead and lightweight processes.</li>
+        <li>Deserve full empowerment to unleash their full potential and enjoy every day.</li>
+        <li>To achieve critical mass, reduce risk and enable full ownership, each team will have 5 ICs, who are all expected to work across Software Development, DevOps, and QA automation.</li>
+        <li>Especially junior and mid-level Engineers are encouraged to develop skills in Full Stack Software Development, DevOps, and QA Automation before specialising in a particular discipline.</li>
+        <li>More on IC Levels and talent development will be communicated in the coming months.</li>
+        </ul>
+     
+     
+      <h2 id="technical_lead">
+        Technical Lead(TL)
+      </h2>
+      <hr class="section-divider"/>
+
+      
+        <ul>
+        <li>Because they don't have people management responsibilities, they are expected to focus on the most complicated and urgent technical issues within the team, so that the team can deliver the most amount of business value. </li>
+        <li>They work with the PO and UX in their team on understanding the product requirements and defining technical solutions which will allow meeting team OKRs.</li>
+        <li>They work with the Head of Engineering in their cluster on aligning the technical direction and overall strategy.</li>
+        <li>They are responsible for instilling a high-performance engineering culture (CI/CD practices, Lean product development, emergent design etc.) within the team and ultimately responsible for the squad’s DORA metrics.</li>
+        </ul>
+        <p>
+        For more information, refer to the detailed job description of the Technical Lead
+      </p>
+
+      <h2 id="engineering_manager">
+        Engineering Manager(EM)
+      </h2>
+      <hr class="section-divider"/>
+
+        <ul>
+        <li>It is a role available to ICs at Senior Level or above.</li>
+        <li>Reports directly to the Head of Engineering of their cluster.</li>
+        <li>All other ICs in the squad report directly to them, including the TL.</li>
+        <li>Is responsible for the people aspects (hiring, training, career development, performance management, managing conflicts etc.) within their team.</li>
+        <li>Is accountable for the technical delivery of their team, i.e., they are measured on their team being able to deliver on the agreed scope and meeting OKRs.</li>
+        <li>Is accountable for the team’s DORA metrics, i.e., ensures all ICs in the team follow DevOps and Lean/Agile principles that lead to High Performance Engineering.</li>
+        <li>Is still an IC in their team (typically at least 50% of the time spent on Software Development activities) but doesn’t have to be the most technical team member in the squad and is not expected to take on the most complicated or highest priority technical tasks.</li>
+        <li>Because EMs are already part of the domain teams, they will already have an in-depth understanding of everything that the team does and will be able to better support their direct reports.</li>
+        <li>Since the TL role is separate, people management and talent development should never drop in priority.</li>
+        </ul>
+        <p>
+        For more information, refer to the detailed job description of the Engineering Manager
+      </p>
+
+      <h2 id="domain_team_structure">
+        Domain team structure
+      </h2>
+      <hr class="section-divider"/>
+
+      <p>
+        Notice the highlighted group of Product Manager, UX and TL – this group together is empowered to make all the decisions about what and how to implement to maximise business value and meet OKRs. Depending on the nature of the team different functional specialists might exist / replace engineering roles (never above the 2-pizza rule).
+       </p>
+
+    </main>
+
+    <div class="page-nav">
+     <div class="page-nav-inner">
+    <h4>In this page</h4>
+    <ul>
+      <li><a href="#domain_teams">Core Engineering Capabilities</a></li>
+      <li><a href="#individual_contributors">Individual Contributors</a></li>
+      <li><a href="#technical_lead">Technical Lead</a></li>
+      <li><a href="#engineering_manager">Engineering Manager</a></li>
+      <li><a href="#domain_team_structure">Domain team structure</a></li>
+    </ul>
+  
+</div>
+</div>
+</div>
+  </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+
+      toggle.addEventListener("click", () => {
+        dropdown.classList.toggle("open");
+      });
+    });
+  });
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("main h2[id]");
+    const navLinks = document.querySelectorAll(".page-nav a");
+
+    function onScroll() {
+      let scrollPos = window.scrollY + 100; // adjust offset for better accuracy
+      sections.forEach((section) => {
+        const top = section.offsetTop;
+        const id = section.getAttribute("id");
+        const link = document.querySelector('.page-nav a[href="#' + id + '"]');
+        
+        if (scrollPos >= top) {
+          navLinks.forEach((link) => link.classList.remove("active"));
+          if (link) link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", onScroll);
+    onScroll(); // trigger on page load
+  });
+
+</script>
+</body>
+
+</html>

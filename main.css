@@ -38,6 +38,11 @@ h1, h2, h3 {
   margin-bottom: 0.5rem;
 }
 
+
+h2 {
+  margin-top: 35px;
+}
+
 h4 {
   color: var(--Text-Primary, #1D1D1F);
 font-family: "Source Sans 3";
@@ -117,16 +122,24 @@ a:hover {
 
 /* Sidebar */
 .sidebar {
-  width: 220px;
-  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+  width: 325px;
+  height: 4000px;
+  padding: var(--24, 24px) var(--24, 24px) var(--24, 24px) 24px;
   background: #fff;
   border-right: 1px solid #eee;
+  box-sizing: border-box;
 }
 
 .sidebar h3 {
   font-size: 14px;
   font-weight: bold;
   margin-top: 24px;
+  margin-bottom: -10px;
   text-transform: uppercase;
 }
 
@@ -156,19 +169,32 @@ a:hover {
 
 .dropdown-toggle {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  width: 100%;
   cursor: pointer;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: normal;
+  padding-right: 24px; /* gives room for arrow to push against */
+  box-sizing: border-box;
+  position: relative;
 }
 
+.dropdown-toggle span {
+  flex-grow: 1;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* arrow floats all the way to the sidebar's edge */
 .dropdown-arrow {
+  position: absolute;
+  right: 0; /* sticks it to the edge of sidebar */
   width: 10px;
   height: 10px;
   transition: transform 0.3s ease;
 }
-
 .dropdown.open .dropdown-arrow {
   transform: rotate(180deg);
 }
@@ -198,9 +224,12 @@ a:hover {
 }
 /* Content */
 .content {
-  flex-grow: 1;
-  padding: 40px;
-  max-width: 900px;
+  display: flex;
+  width: 800px;
+  padding: 20px 0 24px 48px; /* Remove right padding */
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
 }
 
 .breadcrumb {
@@ -248,10 +277,11 @@ a:hover {
 }
 
 .section-divider {
-  border: none;
   border-top: 1px solid #ddd;
-  margin: 8px 0 24px; 
+  margin: 8px 0 24px;
+  width: 100%;
 }
+
 h3.bullet {
   position: relative;
   padding-left: 1.2em; 
@@ -297,13 +327,12 @@ section p {
 }
 
 .sidebar a.active {
-  display: block; /* match other links */
-  padding: 4px 0 4px 24px; /* top/right/bottom/left */
+  display: block;
+  padding: 4px 0 4px 20px; /* Slightly reduced to make space for the bar */
+  margin-left: -24px;       /* Counteracts the sidebar’s inner padding */
   border-left: 4px solid #336FFF;
   color: #336FFF;
   font-weight: 600;
-  background-color: #f9f9f9; /* Optional: same as background to avoid shift */
-  width: 100%; /* fill the sidebar space */
   box-sizing: border-box;
 }
 
@@ -331,4 +360,59 @@ section p {
   font-size: 1.2rem;
   font-weight: 600;
   color: rgb(0, 0, 0);
+}
+.page-nav {
+  width: 304px;
+  padding-left: 24px;
+  padding-top: 16px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  align-self: start;
+}
+
+.page-nav-inner {
+  border-left: 1px solid #C7CDD0;
+  padding-left: 24px;
+}
+
+.page-nav h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.page-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-nav li {
+  margin: 16px 0;
+  position: relative;
+  padding-left: 12px; /* space between blue bar and text */
+}
+
+.page-nav a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-block;
+  position: relative;
+}
+
+.page-nav a.active::before {
+  content: "";
+  position: absolute;
+  left: -37px; /* moves left to sit on the gray line */
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-image: url('/public/images/page_nav.svg');
+  background-repeat: no-repeat;
+  background-size: 4px 100%;
+}
+html {
+  scroll-behavior: smooth;
 }

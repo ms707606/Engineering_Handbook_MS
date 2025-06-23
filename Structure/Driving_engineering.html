@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Driving Engineering Consistency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/main.css" />
+</head>
+<body>
+  <header class="topnav">
+  <div class="logo-container">
+    <img src="/public/images/iuGroup_Logo_white_RGB_vertikal 1.svg" alt="IU Group Logo" class="logo-img" alt="IU Group Logo" class="logo-img" />
+    <span class="logo-text">Engineering Handbook</span>
+  </div>
+  <nav>
+     <a href="https://about.gitlab.com">GitLab <img src="/public/images/arrow-up-right.svg"></a>
+    <label class="dark-toggle">
+      <input type="checkbox" />
+      <span><img src="/public/images/Moon.svg" alt="Dark mode" class="icon" /></span>
+    </label>
+    <div class="search-wrapper">
+  <img src="/public/images/search.svg" alt="Search Icon" />
+  <input type="text" placeholder=" Search…" />
+</div>
+  </nav>
+</header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Principles</h3>
+      <ul>
+        <li><a href="/mission.html">Mission</a></li>
+        <li><a href="/tech_manifesto.html">Tech Manifesto</a></li>
+      </ul>
+      <h3>Role Competencies</h3>
+      <ul>
+        <li><a href="/Competencies.html">Competencies Framework</a></li>
+        <li><a href="/Junior_Software.html">Junior Software Engineer</a></li>
+        <li><a href="/Software_engineer.html">Software Engineer</a></li>
+        <li><a href="/Senior_software.html">Senior Software Engineer</a></li>
+        <li><a href="/Staff_engineer.html">Staff Engineer</a></li>
+        <li><a href="/Principal_software.html">Principal Software Engineer</a></li>
+      </ul>
+      <h3>Organization</h3>
+<ul class="sidebar-list">
+  <li class="dropdown">
+    <div class="dropdown-toggle">
+      <span>Structure</span>
+      <img src="/public/images/Vector.svg" alt="Toggle Dropdown" class="dropdown-arrow" />
+    </div>
+    <ul class="dropdown-menu">
+      <li><a href="Engineering_Structure.html">Engineering Structure Vision</a></li>
+      <li><a href="Domain_Centric.html">Domain-Centric Structure</a></li>
+      <li><a href="Cluster_of_Domains.html">Cluster of Domains</a></li>
+      <li><a href="Driving_engineering.html">Driving Engineering Consistency</a></li>
+      <li><a href="Recap.html">Recap & FAQs</a></li>
+    </ul>
+  </li>
+  <li>Roles</li>
+    <li class="dropdown">
+    <div class="dropdown-toggle">
+      <span>Teams</span>
+      <img src="/public/images/Vector.svg" alt="Toggle Dropdown" class="dropdown-arrow" />
+    </div>
+    <ul class="dropdown-menu">
+      <li><a href="/Teams/Core_components.html">Core Components</a></li>
+      <li><a href="/Teams/CyberSecS.html">CyberSecS</a></li>
+      <li><a href="/Teams/EduTech.html">EduTech</a></li>
+      <li><a href="/Teams/OrgTech.html">OrgTech</a></li>
+      <li><a href="/Teams/MartTech.html">MartTech</a></li>
+      <li><a href="/Teams/SalesTech.html">SalesTech</a></li>
+      <li><a href="/Teams/Synthetic_Teaching.html">Synthetic Teaching</a></li>
+      <li><a href="/Teams/QA.html">QA</a></li>
+    </ul>
+  </li>
+</ul>
+    </aside>
+
+    <main class="content">
+      <nav class="breadcrumb"><a href="/main.html">IU Engineering handbook</a> / Organization / Structure / <a href="Driving_engineering.html"> Driving Engineering Consistency </a></nav>
+      <h1>Driving Engineering Consistency</h1>
+      <p>We’re standardizing engineering practices with shared templates, libraries, and frameworks to speed up development, reduce dependencies, and promote collaboration. This approach ensures teams follow consistent standards, enabling faster, higher-quality delivery while supporting business goals.</p>
+
+      <h2 id="core_capabilities">
+        Core Engineering Capabilities
+      </h2>
+      <hr class="section-divider"/>
+
+      <p>
+        To empower teams and drive meaningful business impact, we are adopting a domain-centric model where ownership is clearly defined. However, at an organizational level, it's crucial to establish consistent engineering standards across all teams. This will be achieved by providing a core set of reusable templates, libraries, and frameworks. These tools will:
+        <ul>
+        <li>Speed up product development</li>
+        <li>Promote collaboration across the organization</li>
+        <li>Serve as guardrails for the entire development pipeline (coding, building, testing, and release)</li>
+        </ul>
+         <br/>By using the same templates and pre-configured frameworks, we’ll reduce development time and organically implement a unified set of standards, minimizing communication and documentation overhead.
+      </p>
+     
+      <h2 id="collaboration_and_continuous_improvement">
+        Collaboration and Continuous Improvement
+      </h2>
+      <hr class="section-divider"/>
+
+      <p>
+        To further reduce dependencies and boost collaboration, we’re keeping core component teams small and encouraging an open-source-style collaboration. All engineers will actively contribute to core libraries and templates across software, infrastructure, and QA automation.
+
+Additionally, we will ensure consistency in our ways of working through lateral reporting lines between the Core Engineering leadership team and each cluster. Our commitment to high-performance engineering means we’ll focus on continuous learning, improving DevOps capabilities, and instilling Lean and Agile practices across all teams. This approach will help us maintain a culture of experimentation and ongoing improvement, driving both efficiency and innovation.
+      </p>
+
+    </main>
+
+    <div class="page-nav">
+     <div class="page-nav-inner">
+    <h4>In this page</h4>
+    <ul>
+      <li><a href="#core_capabilities">Core Engineering Capabilities</a></li>
+      <li><a href="#collaboration_and_continuous_improvement">Collaboration and Continuous Improvement</a></li>
+    </ul>
+  
+</div>
+</div>
+</div>
+  </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+
+      toggle.addEventListener("click", () => {
+        dropdown.classList.toggle("open");
+      });
+    });
+  });
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("main h2[id]");
+    const navLinks = document.querySelectorAll(".page-nav a");
+
+    function onScroll() {
+      let scrollPos = window.scrollY + 100; // adjust offset for better accuracy
+      sections.forEach((section) => {
+        const top = section.offsetTop;
+        const id = section.getAttribute("id");
+        const link = document.querySelector('.page-nav a[href="#' + id + '"]');
+        
+        if (scrollPos >= top) {
+          navLinks.forEach((link) => link.classList.remove("active"));
+          if (link) link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", onScroll);
+    onScroll(); // trigger on page load
+  });
+
+</script>
+</body>
+
+</html>

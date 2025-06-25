@@ -21,7 +21,8 @@
     </label>
    <div class="search-wrapper">
   <img src="public/images/search.svg" alt="Search Icon" />
-  <input type="text" placeholder=" Search…" />
+  <input type="text" placeholder=" Search…" id="searchInput" />
+    <div id="searchResults" style="background:#fff; padding:8px; max-height:200px; overflow:auto; border:1px solid #ccc; display:none; position:absolute; z-index:999; width:100%;"></div>
 </div>
   </nav>
 </header>
@@ -110,27 +111,109 @@
     </main>
   </div>
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const dropdowns = document.querySelectorAll(".dropdown");
+document.addEventListener("DOMContentLoaded", () => {
+  // Sidebar toggle logic
+  const dropdowns = document.querySelectorAll(".dropdown");
 
-    dropdowns.forEach((dropdown) => {
-      const toggle = dropdown.querySelector(".dropdown-toggle");
-      toggle.addEventListener("click", () => {
-        dropdown.classList.toggle("open");
-      });
-    });
-
-    // Automatically highlight current link
-    const currentPath = window.location.pathname.split("/").pop();
-    const sidebarLinks = document.querySelectorAll(".sidebar a");
-
-    sidebarLinks.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (href && href.includes(currentPath)) {
-        link.classList.add("active");
-      }
+  dropdowns.forEach((dropdown) => {
+    const toggle = dropdown.querySelector(".dropdown-toggle");
+    toggle.addEventListener("click", () => {
+      dropdown.classList.toggle("open");
     });
   });
+
+  // Highlight current link
+  const currentPath = window.location.pathname.split("/").pop();
+  const sidebarLinks = document.querySelectorAll(".sidebar a");
+
+  sidebarLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href && href.includes(currentPath)) {
+      link.classList.add("active");
+    }
+  });
+
+  // SEARCH FUNCTIONALITY
+  const input = document.getElementById("searchInput");
+  const resultsBox = document.getElementById("searchResults");
+  const mainContent = document.querySelector("main");
+
+  let previousMarks = [];
+
+  function clearHighlights() {
+    previousMarks.forEach(mark => {
+      const parent = mark.parentNode;
+      if (parent) {
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      }
+    });
+    previousMarks = [];
+  }
+
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  input.addEventListener("input", () => {
+    const term = input.value.trim();
+    resultsBox.innerHTML = '';
+    resultsBox.style.display = 'none';
+
+    clearHighlights();
+
+    if (!term) return;
+
+    const treeWalker = document.createTreeWalker(mainContent, NodeFilter.SHOW_TEXT, null, false);
+    let results = [];
+
+    while (treeWalker.nextNode()) {
+      const node = treeWalker.currentNode;
+      const text = node.nodeValue;
+      const regex = new RegExp(escapeRegExp(term), 'gi');
+      let match;
+      let matches = [];
+
+      while ((match = regex.exec(text)) !== null) {
+        matches.push({ index: match.index, length: match[0].length });
+      }
+
+      if (matches.length > 0) {
+        let currentNode = node;
+
+        matches.reverse().forEach(({ index, length }) => {
+          const after = currentNode.splitText(index + length);
+          const matchNode = currentNode.splitText(index);
+          const mark = document.createElement('mark');
+          mark.textContent = matchNode.nodeValue;
+          matchNode.parentNode.replaceChild(mark, matchNode);
+          previousMarks.push(mark);
+          currentNode = after;
+        });
+
+        results.push({
+          text: text.trim().slice(0, 80).replace(/\s+/g, ' ') + '...',
+          node: node.parentNode
+        });
+      }
+    }
+
+    if (results.length > 0) {
+      resultsBox.style.display = 'block';
+      results.forEach(r => {
+        const div = document.createElement("div");
+        div.style.padding = "6px 4px";
+        div.style.cursor = "pointer";
+        div.style.borderBottom = "1px solid #eee";
+        div.textContent = r.text;
+        div.addEventListener("click", () => {
+          r.node.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+        resultsBox.appendChild(div);
+      });
+    }
+  });
+});
 </script>
 </body>
 </html>

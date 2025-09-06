@@ -325,5 +325,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
+<!-- Back to Top Button -->
+<button id="backToTop" onclick="scrollToTop()">
+  <img src="public/images/arrow-up-1 1.svg" alt="Back to top">
+</button>
+
+<script>
+// Back to top functionality
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// Show/hide back to top button based on scroll position
+window.addEventListener('scroll', function() {
+  const backToTopButton = document.getElementById('backToTop');
+  if (window.pageYOffset > 100) {
+    backToTopButton.style.opacity = '1';
+    backToTopButton.style.visibility = 'visible';
+  } else {
+    backToTopButton.style.opacity = '0';
+    backToTopButton.style.visibility = 'hidden';
+  }
+});
+
+// Initialize button state on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const backToTopButton = document.getElementById('backToTop');
+  // Start with button hidden
+  backToTopButton.style.opacity = '0';
+  backToTopButton.style.visibility = 'hidden';
+});
+</script>
 </body>
 </html>

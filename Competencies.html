@@ -17,10 +17,7 @@
   </div>
   <nav>
      <a href="https://about.gitlab.com">GitLab <img src="public/images/arrow-up-right.svg"></a>
-    <label class="dark-toggle">
-      <input type="checkbox" />
-      <span><img src="public/images/Moon.svg" alt="Dark mode" class="icon" /></span>
-    </label>
+    <img id="darkModeToggle" src="public/images/Moon.svg" alt="Dark mode" class="dark-toggle-icon" style="cursor: pointer; width: 24px; height: 24px;">
     <div class="search-wrapper">
   <button id="searchButton" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; border: none; background: none; cursor: pointer; z-index: 10; padding: 0;">
     <img src="public/images/search.svg" alt="Search Icon" style="width: 16px; height: 16px; position: absolute; left: 4px; top: 50%; transform: translateY(-50%);" />
@@ -190,7 +187,7 @@
           
           // Replace the search term with highlighted version
           const regex = new RegExp(`(${escapeRegExp(term)})`, 'gi');
-          tempDiv.innerHTML = tempDiv.innerHTML.replace(regex, '<mark style="background-color: #ffeb3b; padding: 1px 2px;">$1</mark>');
+          tempDiv.innerHTML = tempDiv.innerHTML.replace(regex, '<mark class="search-highlight" style="padding: 1px 2px;">$1</mark>');
           
           // Update the original element
           element.innerHTML = tempDiv.innerHTML;
@@ -209,7 +206,11 @@
       headerDiv.style.borderBottom = "2px solid #ddd";
       headerDiv.style.fontWeight = "bold";
       headerDiv.style.fontSize = "14px";
-      headerDiv.style.color = "#000";
+      headerDiv.style.color = document.body.classList.contains("dark-mode") ? "#ffffff" : "#000000";
+      headerDiv.style.backgroundColor = document.body.classList.contains("dark-mode") ? "#2d2d2d" : "#f8f9fa";
+      headerDiv.style.borderBottom = document.body.classList.contains("dark-mode") ? "1px solid #575E62" : "1px solid #ddd";
+      headerDiv.style.padding = "8px 12px";
+      headerDiv.style.fontWeight = "600";
       headerDiv.textContent = `Search results for "${term}" (${crossPageResults.length} pages)`;
       resultsBox.appendChild(headerDiv);
 
@@ -221,18 +222,18 @@
         div.style.borderBottom = "1px solid #eee";
         div.style.fontSize = "14px";
         div.style.lineHeight = "1.4";
-        div.style.color = "#000";
+        div.style.color = document.body.classList.contains("dark-mode") ? "#ffffff" : "#000000";
         
         // Create page title
         const titleDiv = document.createElement("div");
         titleDiv.style.fontWeight = "bold";
         titleDiv.style.marginBottom = "4px";
-        titleDiv.style.color = "#0066cc";
+        titleDiv.style.color = document.body.classList.contains("dark-mode") ? "#80A6FF" : "#0066cc";
         titleDiv.textContent = result.title;
         
         // Create search term highlight
         const searchTermSpan = document.createElement("span");
-        searchTermSpan.style.backgroundColor = "#ffeb3b";
+        searchTermSpan.style.backgroundColor = document.body.classList.contains("dark-mode") ? "rgba(254, 77, 249, 0.9)" : "rgba(196, 56, 180, 0.9)";
         searchTermSpan.style.padding = "2px 4px";
         searchTermSpan.style.borderRadius = "3px";
         searchTermSpan.style.fontWeight = "bold";
@@ -241,7 +242,7 @@
         // Create context
         const contextDiv = document.createElement("div");
         contextDiv.style.fontSize = "12px";
-        contextDiv.style.color = "#666";
+        contextDiv.style.color = document.body.classList.contains("dark-mode") ? "#cccccc" : "#666666";
         
         if (result.context) {
           const contextLower = result.context.toLowerCase();
@@ -277,13 +278,13 @@
         currentPageDiv.style.borderBottom = "1px solid #eee";
         currentPageDiv.style.fontSize = "14px";
         currentPageDiv.style.lineHeight = "1.4";
-        currentPageDiv.style.color = "#000";
-        currentPageDiv.style.backgroundColor = "#f0f8ff";
+        currentPageDiv.style.color = document.body.classList.contains("dark-mode") ? "#ffffff" : "#000000";
+        currentPageDiv.style.backgroundColor = document.body.classList.contains("dark-mode") ? "#3d3d3d" : "#f0f8ff";
         
         const titleDiv = document.createElement("div");
         titleDiv.style.fontWeight = "bold";
         titleDiv.style.marginBottom = "4px";
-        titleDiv.style.color = "#0066cc";
+        titleDiv.style.color = document.body.classList.contains("dark-mode") ? "#80A6FF" : "#0066cc";
         titleDiv.textContent = "Current Page (highlighted below)";
         
         currentPageDiv.appendChild(titleDiv);
@@ -332,6 +333,79 @@
         }, 200);
       }, 100);
     }
+  
+  // Force remove underlines from dropdown menu items
+  function removeDropdownUnderlines() {
+    const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+    dropdownLinks.forEach(link => {
+      link.style.textDecoration = 'none';
+      link.style.borderBottom = 'none';
+      link.style.boxShadow = 'none';
+    });
+  }
+  
+  // Remove underlines on page load
+  removeDropdownUnderlines();
+  
+  // Remove underlines when dropdowns are opened
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.dropdown-toggle')) {
+      setTimeout(removeDropdownUnderlines, 100);
+    }
+  });
+    
+    // Handle search input content class for darker background
+    if (searchInput) { searchInput.addEventListener('input', function() { if (this.value.trim() !== '') { this.classList.add('has-content'); } else { this.classList.remove('has-content'); } }); if (searchInput.value.trim() !== '') { searchInput.classList.add('has-content'); } }
+    
+    // Fix search results header visibility
+    function fixSearchHeaderVisibility() {
+      const resultsBox = document.getElementById('searchResults');
+      if (resultsBox) {
+        const headerDiv = resultsBox.querySelector('div:first-child');
+        if (headerDiv && document.body.classList.contains('dark-mode')) {
+          headerDiv.style.backgroundColor = '#2d2d2d';
+          headerDiv.style.color = '#ffffff';
+          headerDiv.style.borderBottom = '1px solid #575E62';
+        }
+      }
+    }
+    
+    // Call the fix function when search results are shown
+    const originalShowResults = window.showResults || function() {};
+    window.showResults = function() {
+      originalShowResults.apply(this, arguments);
+      setTimeout(fixSearchHeaderVisibility, 10);
+    };
+    
+    // Force search input dark styling
+    function applySearchInputDarkStyling() {
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput && document.body.classList.contains('dark-mode')) {
+        searchInput.style.backgroundColor = '#1a1a1a';
+        searchInput.style.color = '#ffffff';
+        searchInput.style.border = '1px solid #575E62';
+        
+        if (searchInput.classList.contains('has-content')) {
+          searchInput.style.backgroundColor = '#0f0f0f';
+        }
+      }
+    }
+    
+    // Apply on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      applySearchInputDarkStyling();
+    });
+    
+    // Apply when dark mode is toggled
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    if (darkModeToggle) {
+      darkModeToggle.addEventListener('click', function() {
+        setTimeout(applySearchInputDarkStyling, 100);
+      });
+    }
+    
+    // Apply when input content changes
+    if (searchInput) { searchInput.addEventListener('input', function() { if (this.value.trim() !== '') { this.classList.add('has-content'); } else { this.classList.remove('has-content'); } applySearchInputDarkStyling(); }); }
   });
 </script>
 
@@ -369,6 +443,42 @@ document.addEventListener('DOMContentLoaded', function() {
   backToTopButton.style.visibility = 'hidden';
 });
 </script>
+  <script>
+    // Dark mode functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      const body = document.body;
+      const logoImg = document.querySelector('.logo-img');
+      const gitlabArrow = document.querySelector('nav a img[src*="arrow-up-right"]');
+      const searchIcon = document.querySelector('#searchButton img');
+
+      const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+      const applyTheme = (isDark) => {
+        if (isDark) {
+          body.classList.add('dark-mode');
+          darkModeToggle.src = 'public/images/Moon_darkmode.svg';
+          logoImg.src = 'public/images/IuGroup_logo_darkmode.svg';
+          if (gitlabArrow) gitlabArrow.src = 'public/images/ArrowUpRight_darkmode.svg';
+          if (searchIcon) searchIcon.src = 'public/images/search_darkmode.svg';
+        } else {
+          body.classList.remove('dark-mode');
+          darkModeToggle.src = 'public/images/Moon.svg';
+          logoImg.src = 'public/images/iuGroup_Logo_white_RGB_vertikal 1.svg';
+          if (gitlabArrow) gitlabArrow.src = 'public/images/arrow-up-right.svg';
+          if (searchIcon) searchIcon.src = 'public/images/search.svg';
+        }
+      };
+
+      applyTheme(isDarkMode);
+
+      darkModeToggle.addEventListener('click', function() {
+        const isCurrentlyDark = body.classList.contains('dark-mode');
+        applyTheme(!isCurrentlyDark);
+        localStorage.setItem('darkMode', !isCurrentlyDark);
+      });
+    });
+  </script>
 </body>
 
 </html>

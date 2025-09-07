@@ -148,8 +148,103 @@ a:hover {
   border: 1px solid #ccc;
 }
 
-.dark-toggle {
+.dark-toggle-icon {
   cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.dark-toggle-icon:hover {
+  opacity: 0.7;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark-mode .topnav {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark-mode .sidebar {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark-mode .main-content {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark-mode .sidebar-list li {
+  color: #ffffff;
+}
+
+.dark-mode .sidebar-list li:hover {
+  background-color: #3d3d3d;
+}
+
+/* Make all text white in dark mode */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode p,
+.dark-mode span,
+.dark-mode div,
+.dark-mode a,
+.dark-mode strong,
+.dark-mode em,
+.dark-mode li,
+.dark-mode td,
+.dark-mode th {
+  color: #ffffff !important;
+}
+
+.dark-mode .logo-text {
+  color: #ffffff;
+}
+
+.dark-mode .card {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark-mode .card strong {
+  color: #ffffff;
+}
+
+.dark-mode .card p {
+  color: #ffffff;
+}
+
+.dark-mode .card a {
+  color: #80A6FF !important;
+}
+
+/* Dark mode back-to-top button */
+.dark-mode #backToTop {
+  border: 2px solid #575E62;
+}
+
+/* Dark mode callout styles */
+.dark-mode .callout {
+  background: rgba(254, 77, 249, 0.10);
+  border-left: 4px solid #bb33cc;
+}
+
+.dark-mode .callout2 {
+  background: rgba(51, 111, 255, 0.10);
+  border-left: 4px solid #336FFF;
+}
+
+.dark-mode .callout3 {
+  background: rgba(60, 194, 49, 0.10);
+  border-left: 4px solid #3CC231;
 }
 
 /* Main Layout */
@@ -224,10 +319,10 @@ a:hover {
   text-overflow: ellipsis;
 }
 
-/* arrow floats all the way to the sidebar's edge */
+/* arrow positioned next to the text */
 .dropdown-arrow {
   position: absolute;
-  right: 0; /* sticks it to the edge of sidebar */
+  right: 8px; /* positioned closer to the text, accounting for padding */
   width: 10px;
   height: 10px;
   transition: transform 0.3s ease;
@@ -253,11 +348,166 @@ a:hover {
 
 .dropdown-menu li a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .dropdown-menu li a:hover {
-  text-decoration: underline;
+  text-decoration: underline !important;
+}
+
+/* Ensure dropdown menu items are not underlined by default in dark mode */
+.dark-mode .dropdown-menu li a {
+  text-decoration: none !important;
+}
+
+.dark-mode .dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Override any general link styles for dropdown items */
+.sidebar .dropdown-menu li a,
+.sidebar .dropdown-menu li a:link,
+.sidebar .dropdown-menu li a:visited,
+.sidebar .dropdown-menu li a:focus {
+  text-decoration: none !important;
+}
+
+.sidebar .dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Dark mode overrides for dropdown items */
+.dark-mode .sidebar .dropdown-menu li a,
+.dark-mode .sidebar .dropdown-menu li a:link,
+.dark-mode .sidebar .dropdown-menu li a:visited,
+.dark-mode .sidebar .dropdown-menu li a:focus {
+  text-decoration: none !important;
+}
+
+.dark-mode .sidebar .dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Ultra-specific overrides to ensure no underlines by default */
+.sidebar-list .dropdown .dropdown-menu li a {
+  text-decoration: none !important;
+}
+
+.sidebar-list .dropdown .dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+.dark-mode .sidebar-list .dropdown .dropdown-menu li a {
+  text-decoration: none !important;
+}
+
+.dark-mode .sidebar-list .dropdown .dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Force remove underlines from dropdown items - nuclear option */
+.sidebar-list li.dropdown ul.dropdown-menu li a,
+.sidebar-list li.dropdown ul.dropdown-menu li a:link,
+.sidebar-list li.dropdown ul.dropdown-menu li a:visited,
+.sidebar-list li.dropdown ul.dropdown-menu li a:focus,
+.sidebar-list li.dropdown ul.dropdown-menu li a:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.sidebar-list li.dropdown ul.dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a,
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a:link,
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a:visited,
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a:focus,
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Search highlighting colors */
+.search-highlight {
+  background-color: rgba(196, 56, 180, 0.9) !important; /* #C438B4 with 10% less visibility */
+}
+
+.dark-mode .search-highlight {
+  background-color: rgba(254, 77, 249, 0.9) !important; /* #FE4DF9 with 10% less visibility */
+}
+
+/* Search dropdown dark mode styling */
+.dark-mode #searchResults {
+  background-color: #2d2d2d !important;
+  border: 1px solid #575E62 !important;
+  color: #ffffff !important;
+}
+
+.dark-mode #searchResults div {
+  color: #ffffff !important;
+}
+
+.dark-mode #searchResults div:hover {
+  background-color: #3d3d3d !important;
+}
+
+/* Fix search results header visibility in dark mode */
+.dark-mode #searchResults > div:first-child {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid #575E62 !important;
+}
+
+/* Dark mode search input styling - 30% darker */
+.dark-mode #searchInput {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 1px solid #575E62 !important;
+}
+
+/* Force search input dark styling with higher specificity */
+body.dark-mode #searchInput,
+.dark-mode input#searchInput {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 1px solid #575E62 !important;
+}
+
+.dark-mode #searchInput::placeholder {
+  color: #cccccc !important;
+}
+
+/* Search input with content - even darker background */
+#searchInput.has-content {
+  background-color: #0f0f0f !important;
+}
+
+.dark-mode #searchInput.has-content {
+  background-color: #0f0f0f !important;
+}
+
+/* SIMPLE FIX - Target dropdown menu links directly */
+.dropdown-menu a {
+  text-decoration: none !important;
+}
+
+.dropdown-menu a:hover {
+  text-decoration: underline !important;
+}
+
+.dark-mode .dropdown-menu a {
+  text-decoration: none !important;
+}
+
+.dark-mode .dropdown-menu a:hover {
+  text-decoration: underline !important;
 }
 /* Content */
 .content {
@@ -283,9 +533,16 @@ a:hover {
 }
 
 .callout strong {
-  margin-left: 8px;
+  margin-left: 1px;
   display: inline-block;
   vertical-align: middle;
+}
+
+.callout strong img {
+  vertical-align: middle;
+  margin-right: 6px;
+  position: relative;
+  top: -2px;
 }
 
 .callout2 {
@@ -406,11 +663,56 @@ section p {
 .sidebar a.active {
   display: block;
   padding: 4px 0 4px 20px; /* Slightly reduced to make space for the bar */
-  margin-left: -24px;       /* Counteracts the sidebar’s inner padding */
+  margin-left: -24px;       /* Counteracts the sidebar's inner padding */
   border-left: 4px solid #336FFF;
   color: #336FFF;
   font-weight: 600;
   box-sizing: border-box;
+}
+
+/* Dark mode styling for active sidebar link */
+.dark-mode .sidebar a.active {
+  border-left: 4px solid #80A6FF;
+  color: #80A6FF !important;
+}
+
+/* Dark mode styling for bullet points */
+.dark-mode ul li::marker,
+.dark-mode ol li::marker {
+  color: #ffffff !important;
+}
+
+.dark-mode ul li {
+  color: #ffffff !important;
+}
+
+.dark-mode ol li {
+  color: #ffffff !important;
+}
+
+/* Dark mode styling for custom bullet points */
+.dark-mode h3.bullet::before {
+  color: #ffffff !important;
+}
+
+/* Dark mode styling for all list elements */
+.dark-mode ul,
+.dark-mode ol {
+  color: #ffffff !important;
+}
+
+.dark-mode ul li,
+.dark-mode ol li,
+.dark-mode li {
+  color: #ffffff !important;
+}
+
+/* Dark mode styling for nested lists */
+.dark-mode ul ul li,
+.dark-mode ol ol li,
+.dark-mode ul ol li,
+.dark-mode ol ul li {
+  color: #ffffff !important;
 }
 
 .topnav {
@@ -597,6 +899,12 @@ section p {
   margin: 0 auto;               /* center the whole box itself */
   width: 500px;           /* shrink to fit contents */
   height: 130px;
+}
+
+/* Dark mode styling for core group box - 10% see-through effect */
+.dark-mode .core-group-box {
+  background-color: rgba(128, 166, 255, 0.10); /* 10% see-through light blue */
+  border: 2px solid #80A6FF; /* Light blue border */
 }
 
 .core-and-manager-row {

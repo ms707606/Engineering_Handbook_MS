@@ -1,124 +1,921 @@
-.container {
-    width: 1728px;
-    height: 1117px;
-    margin: 0 auto; /* Centers the content */
-}
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@700&display=swap');
 
-header {
-    border-bottom: 1px solid var(--Border-Primary, #C7CDD0);
-    padding-bottom: 10px; /* Adds spacing between the line and sidebar */
-    margin-bottom: 20px; /* Ensures space between elements */
+body {
+  margin: 0;
+  font-family: 'Source Sans 3', sans-serif;
+  background: #ffffff;
+  color: #222;
 }
 
-.divider {
-    border: none;
-    border-top: 1px solid var(--Border-Primary, #C7CDD0);
-    margin: 10px 0 20px 0; /* Adds spacing above and below */
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 14px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 2px solid #C7CDD0;
+  background: rgba(199, 205, 208, 0.10);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
 }
 
-.main-content {
-    margin-left: 325px; /* Push content to the right */
-    padding: 24px;
+#backToTop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.35);
+  border-color: #007bff;
 }
 
-.title-container {
-    display: flex;
-    align-items: center; /* Align items vertically */
-    gap: 10px; /* Space between logo and text */
+#backToTop img {
+  width: 12px;
+  height: 12px;
 }
+
+
+.search-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 220px;
+}
+
+.search-wrapper img {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.search-wrapper input {
+  width: 100%;
+  height: 32px;
+  padding-left: 40px; 
+  border: 1px solid #ccc;
+  border-radius: 99px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  position: relative;
+  z-index: 0;
+  background: transparent;
+}
+h1, h2, h3 {
+  margin-bottom: 0.5rem;
+}
+
+
+h2 {
+  margin-top: 35px;
+}
+
+h4 {
+  color: var(--Text-Primary, #1D1D1F);
+font-family: "Source Sans 3";
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 140%; /* 25.2px */
+}
+
+h4 {
+  margin-bottom: 4px; /* reduce bottom space */
+}
+
+h4 + p{
+  margin-top: 0px; /* eliminate gap above paragraph */
+}
+
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.needed_active {
+  color: #336FFF;
+  text-decoration: underline;
+}
+
+/* Layout */
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+
 
 .logo {
-    width: 50px; /* Adjust as needed */
-    height: auto; /* Maintain aspect ratio */
+  font-weight: bold;
+  font-size: 18px;
 }
 
-
-.logo img {
-    width: 100px; /* Adjust logo size */
-    height: auto;
-}
-/* Style the h1 title */
-.engineering-handbook {
-    text-align: center;
-    font-family: 'Source Sans 3', sans-serif;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 130%;
-    margin-bottom: 20px;
+.logo span {
+  font-weight: normal;
+  margin-left: 4px;
 }
 
-/* Layout container */
-.content-container {
-    display: flex;
-    align-items: flex-start; /* Align sidebar and content */
-    gap: 20px;
+.topnav nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-/* Sidebar styling */
+.topnav .search-wrapper input {
+  padding-left: 40px;
+  border-radius: 999px;
+  height: 32px;
+  border: 1px solid #ccc;
+}
+
+.dark-toggle-icon {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.dark-toggle-icon:hover {
+  opacity: 0.7;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark-mode .topnav {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark-mode .sidebar {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark-mode .main-content {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark-mode .sidebar-list li {
+  color: #ffffff;
+}
+
+.dark-mode .sidebar-list li:hover {
+  background-color: #3d3d3d;
+}
+
+/* Make all text white in dark mode */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode p,
+.dark-mode span,
+.dark-mode div,
+.dark-mode a,
+.dark-mode strong,
+.dark-mode em,
+.dark-mode li,
+.dark-mode td,
+.dark-mode th {
+  color: #ffffff !important;
+}
+
+.dark-mode .logo-text {
+  color: #ffffff;
+}
+
+.dark-mode .card {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark-mode .card strong {
+  color: #ffffff;
+}
+
+.dark-mode .card p {
+  color: #ffffff;
+}
+
+.dark-mode .card a {
+  color: #80A6FF !important;
+}
+
+/* Dark mode back-to-top button */
+.dark-mode #backToTop {
+  border: 2px solid #575E62;
+}
+
+/* Dark mode callout styles */
+.dark-mode .callout {
+  background: rgba(254, 77, 249, 0.10);
+  border-left: 4px solid #bb33cc;
+}
+
+.dark-mode .callout2 {
+  background: rgba(51, 111, 255, 0.10);
+  border-left: 4px solid #336FFF;
+}
+
+.dark-mode .callout3 {
+  background: rgba(60, 194, 49, 0.10);
+  border-left: 4px solid #3CC231;
+}
+
+/* Main Layout */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
 .sidebar {
-    display: flex;
-    width: 325px;
-    height: auto; /* Adjust height based on content */
-    padding: 24px 24px 24px 0px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    border-right: 1px solid var(--Border-Primary, #C7CDD0);
-    background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+  width: 325px;
+  padding: 24px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
 }
 
-/* Navigation links */
-.side-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+.sidebar h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 24px;
+  margin-bottom: -10px;
+  text-transform: uppercase;
 }
 
-.side-nav li {
-    width: 100%;
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0 0 0;
 }
 
-.side-nav a {
-    display: block;
-    padding: 10px 16px;
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
+.sidebar li {
+  font-size: 14px;
+  padding: 4px 0;
+  cursor: pointer;
 }
 
-.side-nav a:hover {
-    background-color: #f0f0f0;
+.sidebar li:hover {
+  text-decoration: underline;
+}
+.sidebar-list {
+  list-style: none;
+  padding-left: 0;
 }
 
-/* Main content styling */
-.main-content {
-    flex-grow: 1; /* Takes remaining space */
-    padding: 24px;
+.dropdown {
+  margin-bottom: 8px;
 }
 
-.logo {
-    font-size: 24px;
-   
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: normal;
+  padding-right: 24px; /* gives room for arrow to push against */
+  box-sizing: border-box;
+  position: relative;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.dropdown-toggle span {
+  flex-grow: 1;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.nav-links li {
-    display: inline;
+/* arrow positioned next to the text */
+.dropdown-arrow {
+  position: absolute;
+  right: 8px; /* positioned closer to the text, accounting for padding */
+  width: 10px;
+  height: 10px;
+  transition: transform 0.3s ease;
+}
+.dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
+.dropdown-menu {
+  display: none;
+  padding-left: 16px;
+  margin-top: 6px;
 }
 
-.nav-links a:hover {
-    color: #007BFF; /* Change hover effect */
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+.dropdown-menu li a {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Ensure dropdown menu items are not underlined by default in dark mode */
+.dark-mode .dropdown-menu li a {
+  text-decoration: none !important;
+}
+
+.dark-mode .dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Override any general link styles for dropdown items */
+.sidebar .dropdown-menu li a,
+.sidebar .dropdown-menu li a:link,
+.sidebar .dropdown-menu li a:visited,
+.sidebar .dropdown-menu li a:focus {
+  text-decoration: none !important;
+}
+
+.sidebar .dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Dark mode overrides for dropdown items */
+.dark-mode .sidebar .dropdown-menu li a,
+.dark-mode .sidebar .dropdown-menu li a:link,
+.dark-mode .sidebar .dropdown-menu li a:visited,
+.dark-mode .sidebar .dropdown-menu li a:focus {
+  text-decoration: none !important;
+}
+
+.dark-mode .sidebar .dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Ultra-specific overrides to ensure no underlines by default */
+.sidebar-list .dropdown .dropdown-menu li a {
+  text-decoration: none !important;
+}
+
+.sidebar-list .dropdown .dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+.dark-mode .sidebar-list .dropdown .dropdown-menu li a {
+  text-decoration: none !important;
+}
+
+.dark-mode .sidebar-list .dropdown .dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Force remove underlines from dropdown items - nuclear option */
+.sidebar-list li.dropdown ul.dropdown-menu li a,
+.sidebar-list li.dropdown ul.dropdown-menu li a:link,
+.sidebar-list li.dropdown ul.dropdown-menu li a:visited,
+.sidebar-list li.dropdown ul.dropdown-menu li a:focus,
+.sidebar-list li.dropdown ul.dropdown-menu li a:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.sidebar-list li.dropdown ul.dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a,
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a:link,
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a:visited,
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a:focus,
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.dark-mode .sidebar-list li.dropdown ul.dropdown-menu li a:hover {
+  text-decoration: underline !important;
+}
+
+/* Search highlighting colors */
+.search-highlight {
+  background-color: rgba(196, 56, 180, 0.9) !important; /* #C438B4 with 10% less visibility */
+}
+
+.dark-mode .search-highlight {
+  background-color: rgba(254, 77, 249, 0.9) !important; /* #FE4DF9 with 10% less visibility */
+}
+
+/* Search dropdown dark mode styling */
+.dark-mode #searchResults {
+  background-color: #2d2d2d !important;
+  border: 1px solid #575E62 !important;
+  color: #ffffff !important;
+}
+
+.dark-mode #searchResults div {
+  color: #ffffff !important;
+}
+
+.dark-mode #searchResults div:hover {
+  background-color: #3d3d3d !important;
+}
+
+/* Fix search results header visibility in dark mode */
+.dark-mode #searchResults > div:first-child {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid #575E62 !important;
+}
+
+/* Dark mode search input styling - 30% darker */
+.dark-mode #searchInput {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 1px solid #575E62 !important;
+}
+
+/* Force search input dark styling with higher specificity */
+body.dark-mode #searchInput,
+.dark-mode input#searchInput {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 1px solid #575E62 !important;
+}
+
+.dark-mode #searchInput::placeholder {
+  color: #cccccc !important;
+}
+
+/* Search input with content - even darker background */
+#searchInput.has-content {
+  background-color: #0f0f0f !important;
+}
+
+.dark-mode #searchInput.has-content {
+  background-color: #0f0f0f !important;
+}
+
+/* SIMPLE FIX - Target dropdown menu links directly */
+.dropdown-menu a {
+  text-decoration: none !important;
+}
+
+.dropdown-menu a:hover {
+  text-decoration: underline !important;
+}
+
+.dark-mode .dropdown-menu a {
+  text-decoration: none !important;
+}
+
+.dark-mode .dropdown-menu a:hover {
+  text-decoration: underline !important;
+}
+/* Content */
+.content {
+  display: flex;
+  width: 800px;
+  padding: 20px 0 24px 48px; /* Remove right padding */
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.callout {
+  background: #fdeaff;
+  padding: 16px;
+  border-left: 4px solid #bb33cc;
+  margin: 24px 0;
+}
+
+.callout strong {
+  margin-left: 1px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.callout strong img {
+  vertical-align: middle;
+  margin-right: 6px;
+  position: relative;
+  top: -2px;
+}
+
+.callout2 {
+  background: #eaeeff;
+  padding: 16px;
+  border-left: 4px solid #336FFF;
+  margin: 24px 0;
+}
+
+.callout2 strong {
+  margin-left: 8px; 
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.callout3 {
+  background: #55FF4D1A;
+  padding: 16px;
+  border-left: 4px solid #3CC231;
+  margin: 24px 0;
+}
+
+.callout3 strong img {
+  margin-right: 8px; 
+  vertical-align: middle;
+}
+
+.section-divider {
+  border-top: 1px solid #ddd;
+  margin: 8px 0 24px;
+  width: 100%;
+}
+
+h3.bullet {
+  position: relative;
+  padding-left: 1.2em; 
+}
+
+h3.bullet::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #222;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+h3.bullet {
+  padding-left: 1.2em;
+  margin-bottom: 4px;
+}
+
+h3.bullet + p {
+  padding-left: 1.2em; /* match the bullet's indent if needed */
+}
+
+section p {
+  margin-top: 0;
+  padding-left: 0;       /* remove indent if it exists */
+  text-indent: 0;        /* just in case */
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px 18px 18px 24px;
+  gap: 16px;
+  background: #C7CDD01A;
+  border: 2px solid #e2e2e2;
+  border-radius: 12px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 240px; /* optional: restricts card width for layout balance */
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease-in-out;
+  height: 100%;
+  flex: 1 1 calc(33.333% - 24px); /* optional if 3-per-row */
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card strong {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1D1D1F;
+  margin-bottom: 4px;
+}
+
+.card p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+.card a {
+  font-size: 14px;
+  color: #336FFF;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.sidebar a.active {
+  display: block;
+  padding: 4px 0 4px 20px; /* Slightly reduced to make space for the bar */
+  margin-left: -24px;       /* Counteracts the sidebar's inner padding */
+  border-left: 4px solid #336FFF;
+  color: #336FFF;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+/* Dark mode styling for active sidebar link */
+.dark-mode .sidebar a.active {
+  border-left: 4px solid #80A6FF;
+  color: #80A6FF !important;
+}
+
+/* Dark mode styling for bullet points */
+.dark-mode ul li::marker,
+.dark-mode ol li::marker {
+  color: #ffffff !important;
+}
+
+.dark-mode ul li {
+  color: #ffffff !important;
+}
+
+.dark-mode ol li {
+  color: #ffffff !important;
+}
+
+/* Dark mode styling for custom bullet points */
+.dark-mode h3.bullet::before {
+  color: #ffffff !important;
+}
+
+/* Dark mode styling for all list elements */
+.dark-mode ul,
+.dark-mode ol {
+  color: #ffffff !important;
+}
+
+.dark-mode ul li,
+.dark-mode ol li,
+.dark-mode li {
+  color: #ffffff !important;
+}
+
+/* Dark mode styling for nested lists */
+.dark-mode ul ul li,
+.dark-mode ol ol li,
+.dark-mode ul ol li,
+.dark-mode ol ul li {
+  color: #ffffff !important;
+}
+
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff; 
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 40px; 
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+.page-nav {
+  width: 304px;
+  padding-left: 24px;
+  padding-top: 16px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  align-self: start;
+}
+
+.page-nav-inner {
+  border-left: 1px solid #C7CDD0;
+  padding-left: 24px;
+}
+
+.page-nav h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.page-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-nav li {
+  margin: 16px 0;
+  position: relative;
+  padding-left: 12px; /* space between blue bar and text */
+}
+
+.page-nav a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-block;
+  position: relative;
+}
+
+.page-nav a.active::before {
+  content: "";
+  position: absolute;
+  left: -37px; /* moves left to sit on the gray line */
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-image: url('/public/images/page_nav.svg');
+  background-repeat: no-repeat;
+  background-size: 4px 100%;
+}
+
+.team-structure {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 16px;
+  border: 2px solid #ccc;
+  border-radius: 0px;
+}
+
+.supporting-group {
+  height: 130px; /* same height as .core-group-box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.org-chart-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.org-card {
+  background-color: #F4F4F5;
+  border: 2px solid #ccc;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 180px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.org-chart-row + .org-chart-row::before {
+  content: '';
+  display: block;
+  height: 24px;
+  border-left: 2px solid #ccc;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -24px;
+}
+
+.org-card.outlined {
+  border: 2px dashed #336FFF;
+  background-color: #fff;
+}
+
+.core-group,
+.supporting-group,
+.engineers-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.role-card {
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  /* vertically centers icon + label */
+  width: 110px;
+  height: 110px;            /* same height for all roles */
+  font-size: 14px;
+  text-align: center;
+}
+
+.role-card img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
+}
+
+.highlighted {
+  background: #f0f4ff;
+  border: 2px solid #336FFF;
+}
+.core-group-box {
+  display: flex;
+  justify-content: center;      /* horizontally center items */
+  align-items: center;          /* vertically center items */
+  gap: 16px;
+  padding: 5px;
+  background-color: #f0f4ff;
+  border: 2px solid #336FFF;
+  border-radius: 8px;
+  margin: 0 auto;               /* center the whole box itself */
+  width: 500px;           /* shrink to fit contents */
+  height: 130px;
+}
+
+/* Dark mode styling for core group box - 10% see-through effect */
+.dark-mode .core-group-box {
+  background-color: rgba(128, 166, 255, 0.10); /* 10% see-through light blue */
+  border: 2px solid #80A6FF; /* Light blue border */
+}
+
+.core-and-manager-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  align-items: center;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
 }
